@@ -14,9 +14,9 @@ FROM node:18-slim
 
 WORKDIR /kawaraboard
 
-COPY --from=build /app/package*.json ./
-COPY --from=build /app/build ./build
-COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /kawaraboard/package*.json ./
+COPY --from=build /kawaraboard/build ./build
+COPY --from=build /kawaraboard/node_modules ./node_modules
 
 EXPOSE 3000
 
