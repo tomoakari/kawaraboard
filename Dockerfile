@@ -3,7 +3,10 @@ FROM node:18 as build
 
 WORKDIR /kawaraboard
 
-COPY package*.json ./
+# COPY package*.json ./
+COPY /kawaraboard/package.json ./
+COPY /kawaraboard/package-lock.json ./
+
 RUN npm install
 
 COPY . .
