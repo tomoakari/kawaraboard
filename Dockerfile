@@ -21,6 +21,10 @@ WORKDIR /app
 
 # ビルド成果物のコピー
 COPY --from=build /app/build ./build
+
+COPY --from=builder /app/.svelte-kit build/
+# COPY --from=builder /millet-svelte/node_modules node_modules/
+
 COPY --from=build /app/package.json .
 COPY --from=build /app/node_modules ./node_modules
 
