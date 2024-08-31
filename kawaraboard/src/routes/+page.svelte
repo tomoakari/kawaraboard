@@ -1,6 +1,11 @@
 <script>
     
 
+    import Switch from '$lib/Switch.svelte'
+	let sliderValue;
+	let multiValue;
+
+
     let newpost = {
         title: "",
         tags: [""],
@@ -128,8 +133,16 @@
         },
     ]
 
+    let tegakimode = "on"
+    let tegaki = false
+    $: {
+        tegaki = false
+        if(tegakimode == "on"){
+            tegaki = true
+        }
+    }
+
     let isShowNewpaper = false
-    let touchPaperId = 0
 
 
     function addUrlList(){
@@ -149,7 +162,11 @@
             alert("タイトルと概要は必須です")
             return
         }
-        
+
+    }
+
+    function getRandomRotate() {
+        return "rotate" + Math.floor(Math.random() * 3)
     }
 </script>
 
@@ -157,13 +174,17 @@
     <img src="/icon.png" alt="icon">
     <div>KAWARA BOARD</div>
     <p>powerd by values dx</p>
+    
+    <div class="switch-container">
+        <Switch bind:value={tegakimode} label="tegaki" design="slider" />
+    </div>
 </header>
 <div class="main-container">
-    <div class="board-area">
+    <div class="board-area" class:tegaki>
         {#each posts as post}
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-        <div class="paper"  on:mouseover={()=>{touchPaperId = post.id}} on:mouseleave={()=>{touchPaperId=0}}>
+        <div class="paper {getRandomRotate()}">
             <h2 class="post-title">{post.title}</h2>
             <div class="tag-area"><span>GCP</span><span>AI</span></div>
             <div class="summary-area">{post.summary}</div>
@@ -262,6 +283,12 @@
         font-size: 10px;
         color: #808080;
     }
+    .switch-container{
+        margin-left: auto;
+        padding-top: 16px;
+        padding-right: 5px;
+        color: #808080;
+    }
 
     /* メインコンテナ */
     .main-container{
@@ -298,16 +325,20 @@
         width: 290px;
         margin: 10px;
         height: fit-content;
-        /* 
-        width: 290px;
-        height: fit-content;
-        */
-        background-color: antiquewhite;
+        /* background-color: antiquewhite;*/
+        background-image: url('/bg_wp.jpg');
+        background-size: cover;
         box-shadow: 0px 2px 11px -3px #808080;
         padding: 10px ;
     }
     .post-title{
         margin: 0px;
+    }
+    .rotate1{
+        transform: rotate(-1deg);
+    }
+    .rotate2{
+        transform: rotate(1deg);
     }
     .tag-area > span{
         font-size: 10px;
@@ -378,7 +409,9 @@
         margin-top: calc(50vh - 200px);
         height: fit-content;
         width: 400px;
-        background-color: antiquewhite;
+        /*background-color: antiquewhite;*/
+        background-image: url('/bg_wp.jpg');
+        background-size: cover;
         padding: 10px;
     }
     .close-area{
