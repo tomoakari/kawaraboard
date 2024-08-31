@@ -12,6 +12,8 @@ RUN npm install
 # ビルドの実行
 RUN npm run build
 
+RUN ls -la
+
 # 実行ステージ
 FROM node:18-slim
 
