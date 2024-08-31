@@ -6,12 +6,10 @@ WORKDIR /app
 # my-app-name ディレクトリの内容をコピー
 COPY kawaraboard ./
 
-# COPY package*.json ./
-COPY /package.json ./
-COPY /package-lock.json ./
-
+# 依存関係のインストール
 RUN npm install
 
+# ビルドの実行
 RUN npm run build
 
 # 実行ステージ
@@ -19,6 +17,7 @@ FROM node:18-slim
 
 WORKDIR /app
 
+# ビルド成果物のコピー
 COPY --from=build /app/build ./build
 COPY --from=build /app/package.json .
 COPY --from=build /app/node_modules ./node_modules
