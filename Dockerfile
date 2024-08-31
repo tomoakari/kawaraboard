@@ -20,7 +20,7 @@ FROM node:18-slim
 WORKDIR /app
 
 # ビルド成果物のコピー
-COPY --from=build /app/build ./build
+# COPY --from=build /app/build ./build
 
 COPY --from=builder /app/.svelte-kit build/
 # COPY --from=builder /millet-svelte/node_modules node_modules/
