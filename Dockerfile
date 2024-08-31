@@ -1,25 +1,27 @@
 # ビルドステージ
 FROM node:18 as build
 
-WORKDIR /kawaraboard
+WORKDIR /app
+
+# my-app-name ディレクトリの内容をコピー
+COPY kawaraboard ./
 
 # COPY package*.json ./
-COPY /kawaraboard/package.json ./
-COPY /kawaraboard/package-lock.json ./
+COPY /package.json ./
+COPY /package-lock.json ./
 
 RUN npm install
 
-COPY . .
-RUN npm run build --verbose
+RUN npm run build
 
 # 実行ステージ
 FROM node:18-slim
 
-WORKDIR /kawaraboard
+WORKDIR /app
 
-COPY --from=build /kawaraboard/package*.json ./
-COPY --from=build /kawaraboard/build ./build
-COPY --from=build /kawaraboard/node_modules ./node_modules
+COPY --from=build /app/build ./build
+COPY --from=build /app/package.json .
+COPY --from=build /app/node_modules ./node_modules
 
 EXPOSE 3000
 
