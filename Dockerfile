@@ -14,6 +14,7 @@ RUN npm run build
 
 RUN ls -la
 
+
 # 実行ステージ
 FROM node:18-slim
 
@@ -22,9 +23,7 @@ WORKDIR /app
 # ビルド成果物のコピー
 # COPY --from=build /app/build ./build
 
-COPY --from=builder /app/.svelte-kit ./.svelte-kit
-# COPY --from=builder /millet-svelte/node_modules node_modules/
-
+COPY --from=build /app/.svelte-kit ./.svelte-kit
 COPY --from=build /app/package.json .
 COPY --from=build /app/node_modules ./node_modules
 
