@@ -10,7 +10,7 @@ COPY /kawaraboard/package-lock.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build
+RUN npm run build --verbose
 
 # 実行ステージ
 FROM node:18-slim
