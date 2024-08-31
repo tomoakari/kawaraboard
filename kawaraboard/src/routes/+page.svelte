@@ -1,10 +1,11 @@
 <script>
     
+    import PocketBase from 'pocketbase'
+    const pb = new PocketBase('https://pocketbase-cloudrun-mfgb6pkdka-an.a.run.app');
+    
 
     import Switch from '$lib/Switch.svelte'
-	let sliderValue;
-	let multiValue;
-
+    import { onMount } from 'svelte';
 
     let newpost = {
         title: "",
@@ -168,6 +169,20 @@
     function getRandomRotate() {
         return "rotate" + Math.floor(Math.random() * 3)
     }
+
+    onMount(()=>{
+        getDataTest()
+    })
+
+    let testData
+    async function getDataTest(){
+        testData = await pb.collection('posts').getList(1, 50, {
+            // filter: 'created >= "2022-01-01 00:00:00" && someField1 != someField2',
+        });
+        console.log("testData:" + JSON.stringify(testData))
+    }
+    
+
 </script>
 
 <header>
