@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     
     import PocketBase from 'pocketbase'
     const pb = new PocketBase('https://pocketbase-cloudrun-mfgb6pkdka-an.a.run.app');
@@ -19,122 +19,9 @@
         user: "",
         createdAt: ""
     }
-    let posts = [
-        {
-            id: 1,
-            title: "１２３４５６７８９０１２",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 2,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスですIdentity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 3,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 4,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 5,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 6,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスですIdentity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 7,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-        {
-            id: 8,
-            title: "ちゅうもく！",
-            tags: ["GCP", "AI"],
-            urls: [{
-                urlStr: "https://zenn.dev/google_cloud_jp/articles/cloudrun-iap",
-                linkTitle: "Cloud Run と Identity-Aware Proxy で社内限定サービスを構築する"
-            }],
-            summary: "Identity-Aware Proxy (IAP) は Cloud Run などのアプリケーションへのアクセスを保護するためのサービスです",
-            detail: "ユーザー ID を確認し、コンテキストに応じてアクセスの許可・拒否を判断させることができます",
-            user: "松本",
-            createdAt: "2018-06-26 10:16:41.704" ,
-            showflg: false
-        },
-    ]
+    let posts: Post[] = []
 
-    let tegakimode = "on"
+    let tegakimode = "off"
     let tegaki = false
     $: {
         tegaki = false
@@ -164,6 +51,7 @@
             return
         }
 
+
     }
 
     function getRandomRotate() {
@@ -171,15 +59,73 @@
     }
 
     onMount(()=>{
-        getDataTest()
+        getPostData()
     })
 
-    let testData
-    async function getDataTest(){
-        testData = await pb.collection('posts').getList(1, 50, {
+
+    const MAX_GET_POSTS = 10
+    let pageNum = 0
+    async function getPostData(){
+        pageNum += 1
+        let resultData = await pb.collection('posts').getList(pageNum, MAX_GET_POSTS, {
             // filter: 'created >= "2022-01-01 00:00:00" && someField1 != someField2',
         });
-        console.log("testData:" + JSON.stringify(testData))
+        if(resultData.items.length == 0){
+            alert("これより前の投稿はありません")
+            pageNum -= 1
+        }
+        resultData.items.forEach((item)=>{
+            
+            let urls: Url[] = []
+            item.urls.forEach((url: string)=>{
+                let urljson = JSON.parse(JSON.stringify(url))
+                let tempjson = {
+                    urlStr: urljson.urlStr,
+                    linkTitle: urljson.linkTitle
+                }
+                urls.push(tempjson)
+            })
+            
+            let temp = {
+                collectionId: item.collectionId,
+                collectionName: item.collectionName,
+                created: item.created,
+                detail: item.detail,
+                id: item.id,
+                summary: item.summary,
+                tags: item.tags.split(","),
+                title: item.title,
+                updated: item.updated,
+                urls: urls,
+                user: item.user,
+                username: item.username,
+                showflg: false
+            }
+            posts.push(temp);
+        })
+
+        posts = posts
+    }
+
+
+    interface Url {
+        urlStr: string,
+        linkTitle: string
+    }
+    interface Post {
+        collectionId: string,
+        collectionName: string,
+        created: string,
+        detail: string,
+        id: string,
+        summary: string,
+        tags: string[],
+        title: string,
+        updated: string,
+        urls: Url[],
+        user: string,
+        username: string,
+        showflg: boolean
     }
     
 
@@ -197,8 +143,6 @@
 <div class="main-container">
     <div class="board-area" class:tegaki>
         {#each posts as post}
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <!-- svelte-ignore a11y-mouse-events-have-key-events -->
         <div class="paper {getRandomRotate()}">
             <h2 class="post-title">{post.title}</h2>
             <div class="tag-area"><span>GCP</span><span>AI</span></div>
@@ -210,11 +154,14 @@
             </ul>
             {#if post.showflg}
             <div class="detail-area">{post.detail}</div>
-            {:else}
+            {:else if post.detail != ""}
             <button class="detail-link" on:click={()=>{post.showflg = true}}>≪ 詳細を開く ≫</button>
             {/if}
         </div>
         {/each}
+    </div>
+    <div class="more-button-area">
+        <button on:click={()=>getPostData()}>もっと見る</button>
     </div>
 
 
@@ -406,6 +353,27 @@
     }
     .button-area > button:hover{
         background-color: #57b748;
+    }
+    .more-button-area{
+        position: sticky;
+        bottom: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .more-button-area > button{
+        background-color: #64815f;
+        padding: 10px 50px;
+        margin: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 0px 3px #808080;
+    }
+    .more-button-area > button:hover{
+        opacity: 0.8;
     }
     
     /* 投稿モーダルウィンドウ */
