@@ -6,7 +6,7 @@ import('cookie')
 export const handle: Handle = async ({ event, resolve }) => {
     event.locals.id = '';
     event.locals.email = '';
-    event.locals.pb = new PocketBase('http://localhost:8080');
+    event.locals.pb = new PocketBase('https://pocketbase-cloudrun-mfgb6pkdka-an.a.run.app');
 
     const isAuth: boolean = event.url.pathname === '/auth';
     if (isAuth || building) {

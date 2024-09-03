@@ -19,6 +19,6 @@
     <button
         class="border rounded p-2 mt-10 bg-gray-800 text-white hover:bg-gray-700"
     >
-        Login using Github
+        Login using Google
     </button>
 </form>

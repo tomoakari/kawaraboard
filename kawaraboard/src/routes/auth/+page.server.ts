@@ -8,7 +8,7 @@ export const actions = {
         if (!token || typeof token !== 'string') {
             throw redirect(303, '/auth');
         }
-        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/' });
+        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/auth' });
         throw redirect(303, '/');
     }
 } satisfies Actions;
