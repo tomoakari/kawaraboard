@@ -9,7 +9,7 @@ export const actions = {
             // throw redirect(303, '/auth');
             throw redirect(303, '/testauth');
         }
-        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/auth' });
+        cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/' });
         // throw redirect(303, '/');
         throw redirect(303, '/test');
     }
