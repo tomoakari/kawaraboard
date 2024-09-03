@@ -136,6 +136,7 @@
     <div>KAWARA BOARD</div>
     <p>powerd by values dx</p>
     
+    <button on:click={() => (window.location.href = '/auth')}>ログアウト</button>
     <div class="switch-container">
         <Switch bind:value={tegakimode} label="tegaki" design="slider" />
     </div>
