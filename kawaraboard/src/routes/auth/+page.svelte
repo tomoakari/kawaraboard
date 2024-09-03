@@ -5,7 +5,7 @@
 
     async function login(form: HTMLFormElement) {
         try {
-            await pb.collection('users').authWithOAuth2({ provider: 'github' });
+            await pb.collection('users').authWithOAuth2({ provider: 'google' });
             form.token.value = pb.authStore.token;
             form.submit();
         } catch (err) {
