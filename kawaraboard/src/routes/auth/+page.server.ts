@@ -6,9 +6,11 @@ export const actions = {
         const form = await request.formData();
         const token = form.get('token');
         if (!token || typeof token !== 'string') {
+            alert("redirect to /auth")
             throw redirect(303, '/auth');
         }
         cookies.set('pb_auth', JSON.stringify({ token: token }), { path: '/auth' });
+        alert("redirect to /")
         throw redirect(303, '/');
     }
 } satisfies Actions;
